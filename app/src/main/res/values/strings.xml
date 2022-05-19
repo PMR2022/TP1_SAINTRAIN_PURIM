@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">TP1-PMR</string>
+    <string name="pseudo">Pseudo :</string>
 </resources>
