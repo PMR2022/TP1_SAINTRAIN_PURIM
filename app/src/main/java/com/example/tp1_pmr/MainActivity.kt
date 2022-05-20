@@ -19,7 +19,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
 
         refEdtPseudo = findViewById(R.id.pseudo)
 
-        refBtnOK = findViewById<Button>(R.id.btnOK)
+        refBtnOK = findViewById(R.id.btnOK)
         refBtnOK?.setOnClickListener(this)
     }
 
@@ -32,7 +32,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
                 val choixListIntent = Intent(this,ChoixListActivity::class.java).apply {
                     putExtras(bundle)
                 }
-                startActivity(choixListIntent);
+                startActivity(choixListIntent)
             }
         }
     }
