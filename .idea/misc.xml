@@ -3,15 +3,7 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/Lucas/AndroidStudioProjects/TP1PMR/app/src/main/res/layout/activity_choix_list.xml" value="0.271875" />
-        <entry key="..\:/Users/Lucas/AndroidStudioProjects/TP1PMR/app/src/main/res/layout/activity_main.xml" value="0.22" />
-        <entry key="..\:/Users/Lucas/AndroidStudioProjects/TP1PMR/app/src/main/res/layout/activity_settings.xml" value="0.25885416666666666" />
-        <entry key="..\:/Users/Lucas/AndroidStudioProjects/TP1PMR/app/src/main/res/layout/activity_show_list.xml" value="0.27291666666666664" />
-        <entry key="..\:/Users/Lucas/AndroidStudioProjects/TP1PMR/app/src/main/res/layout/array.xml" value="0.27291666666666664" />
-        <entry key="..\:/Users/Lucas/AndroidStudioProjects/TP1PMR/app/src/main/res/layout/item_layout.xml" value="0.27291666666666664" />
-        <entry key="..\:/Users/Lucas/AndroidStudioProjects/TP1PMR/app/src/main/res/layout/settings_activity.xml" value="0.27291666666666664" />
-        <entry key="..\:/Users/Lucas/AndroidStudioProjects/TP1PMR/app/src/main/res/xml/prefs.xml" value="0.33" />
-        <entry key="..\:/Users/Lucas/AndroidStudioProjects/TP1PMR/app/src/main/res/xml/root_preferences.xml" value="0.27291666666666664" />
+        <entry key="..\:/Users/lucas/AndroidStudioProjects/TP1-PMR/app/src/main/res/layout/activity_show_list.xml" value="0.22826086956521738" />
       </map>
     </option>
   </component>

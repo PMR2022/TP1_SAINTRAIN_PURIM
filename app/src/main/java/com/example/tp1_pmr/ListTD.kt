@@ -11,7 +11,7 @@ class ListTD(private var title: String = "") {
     fun setItems(newList: MutableList<ItemTD>){
         Items = newList.toMutableList();
     }
-    fun getItems(): List<ItemTD>{
+    fun getItems(): MutableList<ItemTD>{
         return Items;
     }
     fun search(desc: String): ItemTD?{

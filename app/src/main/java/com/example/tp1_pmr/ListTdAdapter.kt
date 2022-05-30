@@ -2,20 +2,22 @@ package com.example.tp1_pmr
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.AttributeSet
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
-import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 
-class ListAdapter(
-    private val dataSet: List<String>
-) : RecyclerView.Adapter<ListAdapter.ItemViewHolder>(), View.OnClickListener {
+class ListTdAdapter(
+    private val profile:Profile, private val dataSet: List<ListTD>
+) : RecyclerView.Adapter<ListTdAdapter.ItemViewHolder>(), View.OnClickListener {
 
     override fun getItemCount(): Int = dataSet.size
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ItemViewHolder {
         val itemView = TextView(parent.context)
+        itemView.textSize = 16f
+
         itemView.setOnClickListener(this)
         return ItemViewHolder(itemView)
     }
@@ -25,24 +27,25 @@ class ListAdapter(
     }
 
     override fun onClick(view: View) {
-        val list = view.parent as RecyclerView
-        val itemIndex = list.getChildLayoutPosition(view)
+        val recyclerList = view.parent as RecyclerView
+        val listTdIndex = recyclerList.getChildLayoutPosition(view)
 
-        val context = view.context
+        // Bundles the list index and start showListActivity
         val bundle = Bundle().apply {
-            putInt("item index", itemIndex);
+            putString("pseudo", profile.getLogin())
+            putInt("listTD index", listTdIndex)
         }
-        val showListIntent = Intent(context, ShowListActivity::class.java).apply {
+        val showListIntent = Intent(view.context, ShowListActivity::class.java).apply {
             putExtras(bundle)
         }
-        context.startActivity(showListIntent)
+        view.context.startActivity(showListIntent)
     }
 
     class ItemViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         private val textView = itemView as? TextView
 
-        fun bind(text: String) {
-           textView?.text = text
+        fun bind(list: ListTD) {
+           textView?.text = list.getTitle()
         }
     }
 }
