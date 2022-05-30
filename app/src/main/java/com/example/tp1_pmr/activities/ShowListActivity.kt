@@ -1,14 +1,18 @@
-package com.example.tp1_pmr
+package com.example.tp1_pmr.activities
 
+import android.content.Intent
 import android.content.SharedPreferences
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuItem
 import android.view.View
 import android.widget.Button
 import android.widget.EditText
-import android.widget.Toast
+import androidx.appcompat.widget.Toolbar
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.tp1_pmr.*
 import com.google.gson.Gson
 
 class ShowListActivity : AppCompatActivity(), View.OnClickListener {
@@ -32,7 +36,7 @@ class ShowListActivity : AppCompatActivity(), View.OnClickListener {
         // Gets listTD from the bundle
         sharedPreferences = getSharedPreferences("Profiles",0)
         val jsonProfile = sharedPreferences?.getString(pseudo,"DEFAULT")
-        profile = Gson().fromJson(jsonProfile,Profile::class.java)
+        profile = Gson().fromJson(jsonProfile, Profile::class.java)
         listTD = profile?.getLists()?.get(listTdIndex!!)
 
         dataSet = listTD?.getItems()
@@ -45,6 +49,24 @@ class ShowListActivity : AppCompatActivity(), View.OnClickListener {
         refEdtNewItem = findViewById(R.id.newItem)
         refBtnOK = findViewById(R.id.btnOK)
         refBtnOK?.setOnClickListener(this)
+
+        val toolbar = findViewById<Toolbar>(R.id.toolbar)
+        setSupportActionBar(toolbar)
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.toolbar_menu, menu)
+        return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when (item.itemId) {
+            R.id.action_preferences -> {
+                val settingsIntent = Intent(this, SettingsActivity::class.java)
+                startActivity(settingsIntent)
+            }
+        }
+        return true
     }
 
     override fun onClick(view: View) {

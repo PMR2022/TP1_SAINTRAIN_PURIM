@@ -1,9 +1,8 @@
-package com.example.tp1_pmr
+package com.example.tp1_pmr.activities
 
 import android.os.Bundle
 import android.preference.PreferenceActivity
-import androidx.appcompat.app.AppCompatActivity
-import androidx.preference.PreferenceFragmentCompat
+import com.example.tp1_pmr.R
 
 class SettingsActivity : PreferenceActivity() {
 

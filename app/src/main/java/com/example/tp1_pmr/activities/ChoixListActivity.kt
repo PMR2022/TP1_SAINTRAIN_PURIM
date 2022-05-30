@@ -1,13 +1,21 @@
-package com.example.tp1_pmr
+package com.example.tp1_pmr.activities
 
+import android.content.Intent
 import android.content.SharedPreferences
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuItem
 import android.view.View
 import android.widget.Button
 import android.widget.EditText
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.Toolbar
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.tp1_pmr.ListTD
+import com.example.tp1_pmr.ListTdAdapter
+import com.example.tp1_pmr.Profile
+import com.example.tp1_pmr.R
 import com.google.gson.Gson
 
 class ChoixListActivity : AppCompatActivity(), View.OnClickListener {
@@ -29,7 +37,7 @@ class ChoixListActivity : AppCompatActivity(), View.OnClickListener {
         val extras = intent.extras
         val pseudo = extras?.getString("pseudo")
         val jsonProfile = sharedPreferences?.getString(pseudo,"DEFAULT")
-        profile = Gson().fromJson(jsonProfile,Profile::class.java)
+        profile = Gson().fromJson(jsonProfile, Profile::class.java)
 
         dataSet = profile?.getLists()
 
@@ -40,6 +48,24 @@ class ChoixListActivity : AppCompatActivity(), View.OnClickListener {
         refEdtNewList = findViewById(R.id.newList)
         refBtnOK = findViewById(R.id.btnOK)
         refBtnOK?.setOnClickListener(this)
+
+        val toolbar = findViewById<Toolbar>(R.id.toolbar)
+        setSupportActionBar(toolbar)
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.toolbar_menu, menu)
+        return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when (item.itemId) {
+            R.id.action_preferences -> {
+                val settingsIntent = Intent(this, SettingsActivity::class.java)
+                startActivity(settingsIntent)
+            }
+        }
+        return true
     }
 
     override fun onClick(view: View) {
