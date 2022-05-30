@@ -44,7 +44,13 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
             R.id.action_preferences -> {
-                val settingsIntent = Intent(this, SettingsActivity::class.java)
+                val pseudo = refEdtPseudo?.text.toString()
+                val bundle = Bundle().apply {
+                    putString("pseudo", pseudo)
+                }
+                val settingsIntent = Intent(this, SettingsActivity::class.java).apply {
+                    putExtras(bundle)
+                }
                 startActivity(settingsIntent)
             }
         }

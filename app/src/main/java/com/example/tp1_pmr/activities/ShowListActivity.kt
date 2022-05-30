@@ -62,7 +62,14 @@ class ShowListActivity : AppCompatActivity(), View.OnClickListener {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
             R.id.action_preferences -> {
-                val settingsIntent = Intent(this, SettingsActivity::class.java)
+                val extras = intent.extras
+                val pseudo = extras?.getString("pseudo")
+                val bundle = Bundle().apply {
+                    putString("pseudo", pseudo)
+                }
+                val settingsIntent = Intent(this, SettingsActivity::class.java).apply {
+                    putExtras(bundle)
+                }
                 startActivity(settingsIntent)
             }
         }
